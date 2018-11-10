@@ -1,5 +1,6 @@
 window.onload = function()
 {
+    // initialisation de canvas et context
     var canvas = document.getElementById("canvas");
     if(!canvas)
     {
@@ -13,7 +14,8 @@ window.onload = function()
         alert("Impossible de récupérer le context");
         return;
     }
-        
+    
+    // attributs de la balle
     var diametreBalle = 20;
     var posX = 1 + diametreBalle / 2;
     var posY = 1 + diametreBalle / 2;
@@ -24,9 +26,10 @@ window.onload = function()
     
     function animate()
     {
+        // on doit tout effacer avant de redessiner par dessus
         context.clearRect(0, 0, canvas.width, canvas.height);
         
-        //Tracé de la balle
+        //On dessine la balle à sa position x, y
         context.beginPath();
         context.arc(posX, posY, diametreBalle / 2, 0, Math.PI * 2);
         context.fill();
