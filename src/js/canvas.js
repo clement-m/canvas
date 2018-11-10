@@ -14,10 +14,8 @@ window.onload = function()
         return;
     }
 
-    var Ball1 = Object.create(Ball);
-
-    var Ball2 = Object.create(Ball);
-    Ball2.init(40, 20, 65);
+    var Ball1 = new ClassBall();
+    var Ball2 = new ClassBall(40, 20, 65);
 
     var myInterval = setInterval(animate, 1000/30);
     
@@ -26,16 +24,16 @@ window.onload = function()
         context.clearRect(0, 0, canvas.width, canvas.height);
 
         // diplay B1 & B2
-        Ball1.ballDrawing(context);
-        Ball2.ballDrawing(context);
+        Ball1.display(context);
+        Ball2.display(context);
         
         // colision canvas and ball B1 & B2
         Ball1.colisionCanvas(canvas.width, canvas.height);
         Ball2.colisionCanvas(canvas.width, canvas.height);
 
         // deplacement B1 & B2
-        Ball1.updateBallPosition();
-        Ball2.updateBallPosition();
+        Ball1.updatePosition();
+        Ball2.updatePosition();
     }
     
 }
