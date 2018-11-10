@@ -6,6 +6,7 @@ class ClassUnits {
 	addUnit(Unit) {
 		this.arrayUnits.push(Unit);
 	}
+	
 	display(context, canvasWidth, canvasHeight) {
 		this.arrayUnits.forEach(function(Unit) {
 			Unit.display(context);
