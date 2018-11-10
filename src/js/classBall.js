@@ -13,6 +13,13 @@ var Ball = {
         this.speedY = 3;
     },
 
+    colisionCanvas: function() {
+        if(Ball1.posX + Ball1.diametreBall / 2 >= canvas.width || Ball1.posX <= 0 + Ball1.diametreBall / 2)//Si on touche le bord gauche ou droit
+        {
+            Ball1.speedX *= -1;//On inverse la vitesse de déplacement sur l'axe horizontal.
+        }
+    },
+
     move: function () {
         // nothing yet
     }
