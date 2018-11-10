@@ -32,6 +32,7 @@ window.onload = function()
     
     function animate()
     {
+        // on efface tout avant de redessiner par dessus
         context.clearRect(0, 0, canvas.width, canvas.height);
         
         //Tracé de la balle
