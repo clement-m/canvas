@@ -28,6 +28,7 @@ window.onload = function()
     var vitesseX2 = 3;
     var vitesseY2 = 3;
     
+    // on dessine pour 1000 (1 seconde) / 30 fois
     var myInterval = setInterval(animate, 1000 / 30);
     
     function animate()
