@@ -30,7 +30,7 @@ window.onload = function()
     
     var myInterval = setInterval(animate, 1000 / 30);
 
-    function collisionCanvas(pos, vitesse, diametreBalle, canvas) {
+    function collisionBallCanvas(pos, vitesse, diametreBalle, canvas) {
         if(pos + diametreBalle / 2 >= canvas || pos <= 0 + diametreBalle / 2)//Si on touche le bord gauche ou droit
         {
             vitesse *= -1;//On inverse la vitesse de déplacement sur l'axe horizontal.
@@ -38,7 +38,7 @@ window.onload = function()
         return vitesse;
     }
 
-    function moveBall(pos, vitesse) {
+    function updateBallPosition(pos, vitesse) {
         pos += vitesse;
         return pos;
     }
@@ -53,18 +53,53 @@ window.onload = function()
         context.fill();
         
         // on gère les colisions des deux balles
-        vitesseX = collisionCanvas(posX, vitesseX, diametreBalle, canvas.width);
-        vitesseY = collisionCanvas(posY, vitesseY, diametreBalle, canvas.height);
+        vitesseX = collisionBallCanvas(posX, vitesseX, diametreBalle, canvas.width);
+        vitesseY = collisionBallCanvas(posY, vitesseY, diametreBalle, canvas.height);
 
-        vitesseX2 = collisionCanvas(posX2, vitesseX2, diametreBalle2, canvas.width);
-        vitesseY2 = collisionCanvas(posY2, vitesseY2, diametreBalle2, canvas.height);
+        vitesseX2 = collisionBallCanvas(posX2, vitesseX2, diametreBalle2, canvas.width);
+        vitesseY2 = collisionBallCanvas(posY2, vitesseY2, diametreBalle2, canvas.height);
 
         // on change les positions des deux balles
-        posX = moveBall(posX, vitesseX);
-        posY = moveBall(posY, vitesseY);
+        posX = updateBallPosition(posX, vitesseX);
+        posY = updateBallPosition(posY, vitesseY);
         
-        posX2 = moveBall(posX2, vitesseX2);
-        posY2 = moveBall(posY2, vitesseY2);
+        posX2 = updateBallPosition(posX2, vitesseX2);
+        posY2 = updateBallPosition(posY2, vitesseY2);
+
+        /*
+        // COLLISION B1
+        if(posX + diametreBalle / 2 >= canvas.width || posX <= 0 + diametreBalle / 2)//Si on touche le bord gauche ou droit
+        {
+            vitesseX *= -1;//On inverse la vitesse de déplacement sur l'axe horizontal.
+        }
+
+        if(posY + diametreBalle / 2 >= canvas.height || posY <= 0 + diametreBalle / 2)//Si on touche le bord du bas ou du haut
+        {
+            vitesseY *= -1;//On inverse la vitesse de déplacement sur l'axe vertical.
+        }
+
+        // COLLISION B2
+        if(posX2 + diametreBalle2 / 2 >= canvas.width || posX2 <= 0 + diametreBalle2 / 2)//Si on touche le bord gauche ou droit
+        {
+            vitesseX2 *= -1;//On inverse la vitesse de déplacement sur l'axe horizontal.
+        }
+
+        if(posY2 + diametreBalle2 / 2 >= canvas.height || posY2 <= 0 + diametreBalle2 / 2)//Si on touche le bord du bas ou du haut
+        {
+            vitesseY2 *= -1;//On inverse la vitesse de déplacement sur l'axe vertical.
+        }
+        */
+
+
+        /*
+        // DEPLACEMENT B1
+        posX += vitesseX;
+        posY += vitesseY;
+
+        // DEPLACEMENT B2
+        posX2 += vitesseX2;
+        posY2 += vitesseY2;
+        */
     }
     
 }
