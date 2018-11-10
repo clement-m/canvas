@@ -4,7 +4,8 @@
 	<title>canvas</title>
 	<link rel="stylesheet" type="text/css" href="src/css/style.css">
 	
-	<script type="text/javascript" src="src/js/classBall.js"></script>
+	<script type="text/javascript" src="src/js/ClassUnits.js"></script>
+	<script type="text/javascript" src="src/js/ClassBall.js"></script>
 	<script type="text/javascript" src="src/js/canvas.js"></script>
 
 
@@ -13,19 +14,6 @@
 	<script type="text/javascript" src="lib/js/bootstrap.js"></script>
 </head>
 <body>
-	<div class="wrapper">
-		<br />
-		<br />
-		<br />
-		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-				<canvas id="canvas" class="canvas" width="500vw" height="500vh">
-					Y'a pas de canvas avec ce navigateur
-				</canvas>
-			</div>
-			<div class="col-md-4"></div>
-		</div>
-	</div>
+	<?php include('views/mainContent.php'); ?>
 </body>
 </html>
