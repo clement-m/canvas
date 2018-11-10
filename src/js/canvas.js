@@ -14,7 +14,7 @@ window.onload = function()
         return;
     }
 
-    var Ball1 = Object.create(Ball);
+    var Ball1 = new ClassBall();
 
     var myInterval = setInterval(animate, 1000/30);
     
