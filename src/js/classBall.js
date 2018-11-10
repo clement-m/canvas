@@ -5,22 +5,33 @@ var Ball = {
     speedX: 3,
     speedY: 3,
 
-    init: function () {
-        this.diametreBall = 20;
-        this.posX = 20 + this.diametreBall /2;
-        this.posY = 65 + this.diametreBall /2;
+    init: function (diametreBall, posX, posY) {
+        this.diametreBall = diametreBall;
+        this.posX = posX + this.diametreBall /2;
+        this.posY = posY + this.diametreBall /2;
         this.speedX = 3;
         this.speedY = 3;
     },
 
-    colisionCanvas: function() {
-        if(Ball1.posX + Ball1.diametreBall / 2 >= canvas.width || Ball1.posX <= 0 + Ball1.diametreBall / 2)//Si on touche le bord gauche ou droit
+    colisionCanvas: function(canvasWidth, canvasHeight) {
+        if(this.posX + this.diametreBall / 2 >= canvasWidth || this.posX <= 0 + this.diametreBall / 2)//Si on touche le bord gauche ou droit
         {
-            Ball1.speedX *= -1;//On inverse la vitesse de déplacement sur l'axe horizontal.
+            this.speedX *= -1;
+        }
+        if(this.posY + this.diametreBall / 2 >= canvasHeight || this.posY <= 0 + this.diametreBall / 2)//Si on touche le bord gauche ou droit
+        {
+            this.speedY *= -1;
         }
     },
 
-    move: function () {
-        // nothing yet
+    updateBallPosition: function() {
+        this.posX += this.speedX;
+        this.posY += this.speedY;
+    },
+
+    ballDrawing: function(context) {
+        context.beginPath();
+        context.arc(this.posX, this.posY, this.diametreBall / 2, 0, Math.PI * 2);
+        context.fill();
     }
 }
