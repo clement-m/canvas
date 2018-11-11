@@ -1,12 +1,11 @@
 class ClassBall {
-    constructor(id, player, diametreBall, posX, posY) {
+    constructor(id, diametreBall, posX, posY) {
         this.id = id === undefined ? 0 : id;
-        this.player = player === undefined ? 0 : player;
         this.diametreBall = diametreBall === undefined ? 20 : diametreBall;
         this.posX = posX === undefined ? 25 : posX + this.diametreBall / 2;
         this.posY = posY === undefined ? 25 : posY + this.diametreBall / 2;
-        this.speedX = this.player ? 0 : 10;
-        this.speedY = this.player ? 0 : 10;
+        this.speedX = 3;
+        this.speedY = 3;
         this.dead = false;
     }
 
@@ -27,51 +26,8 @@ class ClassBall {
         }
     }
 
-    checkMaxSpeed() {
-        if(this.speedX > 5) this.speedX = 5;
-        if(this.speedX < -5) this.speedX = -5;
-        if(this.speedY > 5) this.speedY = 5;
-        if(this.speedY < -5) this.speedY = -5;
-    }
-
     updatePosition() {
-        this.checkMaxSpeed();
         this.posX += this.speedX;
         this.posY += this.speedY;
-    }
-
-    colidBall(Ennemy) {
-        var impactX = false;
-        var impactY = false;
-        if(this.posX + this.diametreBall / 2 < Ennemy.posX + Ennemy.diametreBall / 2 && this.posX - this.diametreBall / 2 > Ennemy.posX - Ennemy.diametreBall / 2) {
-            impactX = true;
-            //console.log('in X');
-        }
-        if(this.posY + this.diametreBall / 2 < Ennemy.posY + Ennemy.diametreBall / 2 && this.posY - this.diametreBall / 2 > Ennemy.posY - this.diametreBall / 2) {
-            impactY = true;
-            //console.log('in Y');
-        }
-        if(impactX && impactY) {
-            console.log('impact');
-            this.impactEffect(Ennemy);
-        }
-    }
-
-    impactEffect(Ennemy) {
-        if (this.diametreBall >= Ennemy.diametreBall) {
-            this.diametreBall += 20;
-            Ennemy.diametreBall -= 20;
-
-        } else {
-            this.diametreBall -= 20;
-            Ennemy.diametreBall += 20;
-            this.checkDie();
-        }
-    }
-
-    checkDie() {
-        if (this.diametreBall <= 0) {
-            this.dead = true;
-        } 
     }
 }
