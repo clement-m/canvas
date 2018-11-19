@@ -10,5 +10,6 @@
 			</canvas>
 		</div>
 		<div class="col-md-1"></div>
+		<div id="datacontainer"></div>
 	</div>
 </div>
