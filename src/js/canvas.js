@@ -1,5 +1,18 @@
 window.onload = function()
 {
+
+    function loadDoc() {                                              // déclaration de la fonction loadDoc
+        var xhttp = new XMLHttpRequest();                  // on créer un objet xmlhttprequest
+        xhttp.onreadystatechange = function() {            // quand son état a changé qu’il est reçu on lance la fonction
+            if (this.readyState == 4 && this.status == 200) {  // si le ready stat = 4 et le status = 200 (pas 404)
+                document.getElementById("demo").innerHTML = this.responseText;  
+            }
+        };
+        xhttp.open("GET", "ajax_info.txt", true);
+        xhttp.send();
+    }
+
+      loadDoc();
     // LOAD UNIT
     var Units =  new ClassUnits();
     Units.addUnit(new ClassBall());

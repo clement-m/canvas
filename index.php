@@ -15,5 +15,11 @@
 </head>
 <body>
 	<?php include('views/mainContent.php'); ?>
+	<?php 
+	echo "test";
+$accessoire = "patnfoule";
+echo substr($accessoire, 0, 1) .  substr($accessoire, -1, 1);
+	?>
+	<div id="demo"></div>
 </body>
 </html>
